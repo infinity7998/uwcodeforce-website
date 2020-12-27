@@ -13,6 +13,9 @@ body, html {
   min-height: 100vh;
 }
 
+body{
+  background-color: rgb(250, 251, 252);
+}
 
 .fullscreen {
   min-height: 100vh;
@@ -24,12 +27,11 @@ body, html {
 
 .intro {
   animation: fadeIn;
-  animation-duration: 4s;
+  animation-duration: 1s;
 }
 
-.intro2 {
-  animation: fadeIn;
-  animation-duration: 4s;
+.mw-50{
+  max-width: 50%;
 }
 
 @keyframes fadeIn {
