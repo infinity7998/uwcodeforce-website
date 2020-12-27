@@ -13,7 +13,7 @@ const Challenges = () => {
             releaseTime: new Date("12/28/2020"),
             title: "Holiday Havoc",
             desc: "Some sample description goes here...",
-            url: "holidayhavoc"
+            url: "Challenge1.pdf"
         },
         {
             releaseTime: new Date("12/30/2020"),
