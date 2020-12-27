@@ -1,10 +1,11 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
+import { Logo } from './../Miscellaneous/Miscellaneous.component';
 
 
 const Head = () => {
   return (
-    <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-secondary bg-gradient">
+    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
@@ -17,18 +18,20 @@ const Head = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
+        <Logo />
         <div
           className="collapse navbar-collapse"
           id="navbarNavAltMarkup"
         >
-          <div className="navbar-nav">
-            <Link className="nav-link" to="/"> Home</Link>
-            <Link className="nav-link" to="/challenges">Challenges</Link>
-            <Link className="nav-link" to="/contact"> Contact </Link>
+          <div className="navbar-nav p-2">
+            <Link className="nav-link text-light" to="/"> Home</Link>
+            <Link className="nav-link text-light" to="/challenges">Challenges</Link>
+            <Link className="nav-link text-light" to="/contact"> Contact </Link>
             <a
-              className="nav-link" href="https://forms.gle/aL1wt4wSevjWyE969"
-              target="_blank" rel="noreferrer"
+              className="nav-link text-light"
+              href="https://forms.gle/aL1wt4wSevjWyE969"
+              target="_blank"
+              rel="noreferrer"
             >Sign Up
             </a>
           </div>
