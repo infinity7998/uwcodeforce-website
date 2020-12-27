@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 function computeTimeToTarget(target){
     let date_now = new Date()
     
-    let delta = Math.abs(target - date_now) / 1000
+    let delta = (target - date_now) / 1000
+
+    if(delta <= 0) { //If the date has already passed, unlock the challenge
+        return {days: '0', hours: '0', minutes: '0', seconds: '0'};
+    }
 
     let days = Math.floor(delta / 86400)
     delta -= days * 86400
