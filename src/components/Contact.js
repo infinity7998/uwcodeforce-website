@@ -77,9 +77,6 @@ const Contact = () => {
                         <label htmlFor="message" className="form-label" >Message</label>
                         <textarea required className="form-control" name="message" rows="3" value={formState.message} onChange={(e) => {handleChange(e, "message")}}/>
                     </div>
-                    <p>
-                        { JSON.stringify(formState) }
-                    </p>
                     <button
                         // className={`btn btn-primary ${disableSubmit}`}
                         className={"btn btn-primary"}
