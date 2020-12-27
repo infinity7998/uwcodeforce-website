@@ -42,7 +42,7 @@ const Challenge = ({title, releaseTime, desc, index, url}) => {
     }
 
     return (
-        <Card className="w-auto m-auto p-0 mt-2 border border-rounded">
+        <Card className="m-auto p-0 mt-2 border border-rounded">
             <Card.Header as="h6" className="d-flex justify-content-between">
                 <span>
                     Challenge #{index}
