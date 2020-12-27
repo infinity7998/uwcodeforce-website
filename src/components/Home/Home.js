@@ -1,24 +1,58 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
+import {
+  CodeForceTitleSection,
+  NewsItem
+} from '../Miscellaneous/Miscellaneous.component';
 
 
-function Home(){
+
+const Home = () => {
+
+  //TODO: Get news items from the server.
+  
+  const [newsItems, setNewsItems] = useState([
+    {
+      title: "First challenge starts Dec. 28, 2020",
+      time: new Date("12/22/2020"),
+      content: 'The first challenge will be starting on December 28th, 2020! If you are looking to participate, please make sure you <a href="https://forms.gle/aL1wt4wSevjWyE969" target="_blank" rel="noreferrer">sign up</a> before December 24th!'
+    },
+    {
+      title: "Another news item",
+      time: new Date("01/16/2020"),
+      content: 'Some content goes here...' 
+    },
+    {
+      title: "Yet another news item",
+      time: new Date("12/24/2020"),
+      content: 'Some content goes here too...' 
+    }
+  ]);
+
+  // Maybe make a server call for new updates. But that for later.
+
   return (
-    <div className="container-fluid pt-4 fullscreen bg-light">
-      <div className="row text-dark intro">
-        <div className="col-sm-8 col-centered text-center">
-          <h1>UW Code Force</h1>
-          <h4>Collaborate. Compete. Compile</h4>
-        </div>
-      </div>
-      <div className="row intro2">
+    <div className="container-fluid p-0 fullscreen intro">
+      <CodeForceTitleSection/>
+      <div className="row">
         <div className="col-sm-9 col-centered mt-4">
-          <h2 className="">News</h2>
-          <div className="row">
-            <div className="col-sm-8">
-              <h4 className="pb-3">First challenge starts Dec. 28, 2020</h4>
-              <p>The first challenge will be starting on December 28th, 2020!</p>
-              <p>If you are looking to participate, please make sure you <a href="https://forms.gle/aL1wt4wSevjWyE969" target="_blank" rel="noreferrer">sign up</a> before December 24th!</p>
-              <small>posted December 22, 2020</small>
+          <h1 className="p-3 text-center">Updates</h1>
+          <div className="row pt-4">
+            <div className="col-sm-8 p-0 w-100">
+              {[...newsItems].sort((v1, v2) => v1.time > v2.time ? -1: 1).map((item, index) => {
+                return (
+                  <NewsItem key={item.title} even={index % 2 === 0}>
+                    <div className="d-flex justify-content-between">
+                      <h4 className="pb-3">
+                        {item.title}
+                      </h4>
+                      <small>{item.time.toDateString()}</small>
+                    </div>
+                    <div>
+                      <p dangerouslySetInnerHTML={{__html: item.content}}/>
+                    </div>
+                  </NewsItem>
+                )
+              })}
             </div>
           </div>
         </div>
