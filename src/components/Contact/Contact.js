@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import AlertBox from './../AlertBox/AlertBox';
+import { CodeForceTitleSection } from './../Miscellaneous/Miscellaneous.component';
+
 
 
 const CONTACT_URL = "https://uwcodeforce.ca:3004/contact";
 
+// If teams want names, modify it here.
+const TEAMS = Array.from({length: 7}, (v, i) => i+1);
+
 
 const Contact = () => {
 
-    // const [disableSubmit, setDisableSubmit] = useState("");
     const [formState, setFormState] = useState({
       name: "",
       email: "",
       message: "",
+      team: "",
       json: true  
     })
     const [alertObject, setAlertObject] = useState({
         showAlert: false,
-        alertMsg: "",
+        alertMsg: `Sample message`,
         alertType: "success"
     })
 
@@ -27,14 +32,6 @@ const Contact = () => {
             [name]: e.target.value
         })
     }
-
-    // const disableFormSubmit = () =>{
-    //     setDisableSubmit("disabled")
-    // }
-
-    // const enableFormSubmit = () =>{
-    //     setDisableSubmit("")
-    // }
     
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -48,7 +45,7 @@ const Contact = () => {
             })
             ).json()
         if(res.status === "success"){
-            setAlertObject({showAlert: true, alertMsg: "Your message was sent!", alertType: "success"});
+            setAlertObject({showAlert: true, alertMsg: `Your message was sent on ${(new Date()).toLocaleString()}!`, alertType: "success"});
         }else{
             setAlertObject({showAlert: true, alertMsg: "Message failed to send!", alertType: "danger"});
         }
@@ -58,31 +55,54 @@ const Contact = () => {
     }
 
     return (
-        <div className="container-fluid pt-4 fullscreen bg-dark">
-            <div className="col-sm-6 col-centered text-center text-warning">
-                { alertObject.showAlert ? <AlertBox message={alertObject.alertMsg} type={alertObject.alertType}/> : " "}
-                <h2>Contact</h2>
+        <div className="container-fluid pt-0 fullscreen intro">
+            <CodeForceTitleSection />
+            <div className="row">
+                <div className="col-sm-9 col-centered text-center mt-4 mb-2">
+                    <h2>Contact Us</h2>
+                </div>
             </div>
-            <div className="col-sm-6 col-centered text-warning intro">
-                <form id="contactForm" onSubmit={(e)=>{handleSubmit(e)}}>
-                    <div className="mb-3">
-                        <label htmlFor="name" className="form-label">Name</label>
-                        <input required type="text" className="form-control" name="name" value={formState.name} onChange={(e) => {handleChange(e, "name")}}/>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="email" className="form-label">Email Address</label>
-                        <input required type="email" className="form-control" name="email" value={formState.email} onChange={(e) => {handleChange(e, "email")}}/>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="message" className="form-label" >Message</label>
-                        <textarea required className="form-control" name="message" rows="3" value={formState.message} onChange={(e) => {handleChange(e, "message")}}/>
-                    </div>
-                    <button
-                        // className={`btn btn-primary ${disableSubmit}`}
-                        className={"btn btn-primary"}
-                        type="submit"
-                    >Submit</button>
-                </form>
+            <div className="row mb-4">
+            { alertObject.showAlert ? <AlertBox message={alertObject.alertMsg} type={alertObject.alertType}/> : " "}
+            </div>
+            <div className="row mb-4">
+                <div className="col-sm-6 col-centered">
+                    <form
+                        onSubmit={(e)=>{handleSubmit(e)}}
+                        autoComplete="off"
+                    >
+                        <div className="mb-3">
+                            <label htmlFor="name" className="form-label"><strong>Name</strong></label>
+                            <input required type="name" className="form-control" name="name" placeholder="John Doe" value={formState.name} onChange={(e) => {handleChange(e, "name")}}/>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label"><strong>Email Address</strong></label>
+                            <input required type="email" className="form-control" name="email" placeholder="The one that you used to sign up." value={formState.email} onChange={(e) => {handleChange(e, "email")}}/>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="team" className="form-label"><strong>Team</strong></label> 
+                            {TEAMS.map((elem, idx) => (
+                                <div class="form-check">
+                                    <input required class="form-check-input" type="radio" name="team" id={`form-team-${idx}`} value={elem}/>
+                                    <label class="form-check-label" for={`form-team-${idx}`}>
+                                        Team {elem}
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="message" className="form-label" ><strong>Message</strong></label>
+                            <textarea required className="form-control" name="message" placeholder="Stuck somewhere? Got questions? How can we help? Describe here ..." rows="5" value={formState.message} onChange={(e) => {handleChange(e, "message")}}/>
+                        </div>
+                        <div className="mb-3">
+                            <button
+                                className={"btn btn-dark m-auto d-block"}
+                                type="submit"
+                            >Submit</button>
+                        </div>
+
+                    </form>
+                </div>
             </div>
         </div>
     )
