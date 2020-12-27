@@ -1,9 +1,9 @@
 import './App.css';
 
-import Home from './components/Home'
-import Head from './components/Head';
-import Contact from './components/Contact';
-import Challenges from './components/Challenges';
+import Home from './components/Home/Home'
+import Head from './components/Head/Head';
+import Contact from './components/Contact/Contact';
+import Challenges from './components/Challenges/Challenges';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 // import ppt from './codeforceppt.pdf';
 

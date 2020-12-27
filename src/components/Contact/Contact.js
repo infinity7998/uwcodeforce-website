@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AlertBox from './AlertBox';
+import AlertBox from './../AlertBox/AlertBox';
 
 
 const CONTACT_URL = "https://uwcodeforce.ca:3004/contact";
