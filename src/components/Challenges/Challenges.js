@@ -12,21 +12,21 @@ const Challenges = () => {
         {
             releaseTime: new Date("12/28/2020"),
             title: "Holiday Havoc",
-            desc: "Some sample description goes here...",
+            desc: "It’s the holiday season, and everyone is ordering their gifts online this year! Canada Post’s parcel tracking service can’t keep up with the demand! They’re asking you to help them design and develop a new system to help the parcels be delivered on time!",
             url: "Challenge1.pdf"
         },
-        {
-            releaseTime: new Date("12/30/2020"),
-            title: "Challenge 2",
-            desc: "Some sample description goes here...",
-            url: "holidayhavoc"
-        },
-        {
-            releaseTime: new Date("01/18/2021"),
-            title: "Challenge 3",
-            desc: "Some sample description goes here...",
-            url: "holidayhavoc"
-        }
+        // {
+        //     releaseTime: new Date("12/30/2020"),
+        //     title: "Challenge 2",
+        //     desc: "Some sample description goes here...",
+        //     url: "holidayhavoc"
+        // },
+        // {
+        //     releaseTime: new Date("01/18/2021"),
+        //     title: "Challenge 3",
+        //     desc: "Some sample description goes here...",
+        //     url: "holidayhavoc"
+        // }
     ])
 
 
