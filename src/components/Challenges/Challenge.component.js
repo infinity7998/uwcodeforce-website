@@ -66,9 +66,9 @@ const Challenge = ({title, releaseTime, desc, index, url}) => {
                 {desc}
                 </Card.Text>
                 {isReady(timeTo) && (
-                   <Link to={url}>
+                    <a href={`https://www.uwcodeforce.ca/${url}`}>
                        <Button variant="dark"> View Challenge </Button>
-                   </Link>
+                    </a>
                 )}
                 {!isReady(timeTo) && (
                     <Button variant="dark" disabled> View Challenge </Button> 
