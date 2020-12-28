@@ -13,7 +13,7 @@ const Challenges = () => {
             releaseTime: new Date("12/28/2020"),
             title: "Holiday Havoc",
             desc: "Some sample description goes here...",
-            url: "holidayhavoc"
+            url: "Challenge1.pdf"
         },
         {
             releaseTime: new Date("12/30/2020"),
@@ -54,7 +54,7 @@ const Challenges = () => {
                 <br/>
                 <h6>(These challenges will automatically be made available on the designated date.)</h6>
             </div>
-            <div className="row col-sm-12">
+            <div className="row col-sm-10 mx-auto">
             {[...challenges].sort((a, b) => a.releaseTime > b.releaseTime ? 1 : -1).map((item, idx) => (
                 <Challenge
                     releaseTime={item.releaseTime}

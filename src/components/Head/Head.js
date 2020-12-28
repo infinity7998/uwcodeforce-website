@@ -24,11 +24,11 @@ const Head = () => {
           id="navbarNavAltMarkup"
         >
           <div className="navbar-nav p-2">
-            <Link className="nav-link text-light" to="/"> Home</Link>
-            <Link className="nav-link text-light" to="/challenges">Challenges</Link>
-            <Link className="nav-link text-light" to="/contact"> Contact </Link>
+            <Link className="nav-link dark-hover text-light" to="/"> Home</Link>
+            <Link className="nav-link dark-hover text-light" to="/challenges">Challenges</Link>
+            <Link className="nav-link dark-hover text-light" to="/contact"> Contact </Link>
             <a
-              className="nav-link text-light"
+              className="nav-link dark-hover disabled"
               href="https://forms.gle/aL1wt4wSevjWyE969"
               target="_blank"
               rel="noreferrer"
