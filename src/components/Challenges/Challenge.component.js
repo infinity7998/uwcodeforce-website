@@ -66,7 +66,7 @@ const Challenge = ({title, releaseTime, desc, index, url}) => {
                 {desc}
                 </Card.Text>
                 {isReady(timeTo) && (
-                   <Link to={`challenges/${url}`}>
+                   <Link to={url}>
                        <Button variant="dark"> View Challenge </Button>
                    </Link>
                 )}

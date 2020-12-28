@@ -14,18 +14,18 @@ const Home = () => {
     {
       title: "First challenge starts Dec. 28, 2020",
       time: new Date("12/22/2020"),
-      content: 'The first challenge will be starting on December 28th, 2020! If you are looking to participate, please make sure you <a href="https://forms.gle/aL1wt4wSevjWyE969" target="_blank" rel="noreferrer">sign up</a> before December 24th!'
+      content: 'The first challenge will be starting on December 28th, 2020! If you are looking to participate, please make sure you <s>sign</s> up before December 24th!'
     },
-    {
-      title: "Another news item",
-      time: new Date("01/16/2020"),
-      content: 'Some content goes here...' 
-    },
-    {
-      title: "Yet another news item",
-      time: new Date("12/24/2020"),
-      content: 'Some content goes here too...' 
-    }
+    // {
+    //   title: "Another news item",
+    //   time: new Date("01/16/2020"),
+    //   content: 'Some content goes here...' 
+    // },
+    // {
+    //   title: "Yet another news item",
+    //   time: new Date("12/24/2020"),
+    //   content: 'Some content goes here too...' 
+    // }
   ]);
 
   // Maybe make a server call for new updates. But that for later.
